@@ -181,6 +181,12 @@ class OdxLinkDatabase:
             # in the ID database for the document fragment
             if (obj := doc_frag_db.get(ref.ref_id)) is not None:
                 if expected_type is not None:
+
+                    ## we convert ComparamSpec to ComparamSubset
+                    if expected_type.__name__ == 'ComparamSpec':
+                        from .comparamsubset import ComparamSubset
+                        expected_type = ComparamSubset
+
                     odxassert(isinstance(obj, expected_type))
 
                 return obj

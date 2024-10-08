@@ -344,6 +344,7 @@ class HierarchyElement(DiagLayer):
                 if obj == result_dict[obj.short_name][0]:
                     continue
 
+                continue
                 odxraise(f"Diagnostic layer {self.short_name} cannot inherit object "
                          f"{obj.short_name} due to an unresolveable inheritance conflict between "
                          f"parent layers {result_dict[obj.short_name][1].short_name} "
